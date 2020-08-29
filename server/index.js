@@ -3,9 +3,10 @@ const WebSocket = require('ws')
 const wss = new WebSocket.Server({ port: 8080 })
 
 const defaults = {
-    contrast: 50,
+    contrast: 10,
     brightness: 33,
-    animation: 12
+    animation: 12,
+    ready: true
 }
 
 wss.on('connection', (ws) => {

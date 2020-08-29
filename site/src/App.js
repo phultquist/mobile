@@ -8,6 +8,25 @@ class App extends Component {
   constructor(props) {
     super(props);
     this.sendMessage = this.sendMessage.bind(this)
+    this.state = {defaults: {
+      contrast: 30,
+      brightness: 20,
+      animation: 90
+    }}
+  }
+
+  componentDidMount() {
+    client.onopen = () => {
+      console.log('WebSocket Client Connected');
+    };
+    client.onmessage = (message) => {
+      this.setState({
+        defaults: JSON.parse(message.data)
+      })
+      console.log(this.state.defaults);
+      this.render();
+      return this.state.defaults
+    };
   }
   
   sendMessage(msg) {
@@ -15,15 +34,7 @@ class App extends Component {
   }
 
   render() {
-    client.onopen = () => {
-      console.log('WebSocket Client Connected');
-    };
-    client.onmessage = (message) => {
-      console.log(message);
-      this.defaults = JSON.parse(message.data);
-      console.log(this.defaults);
-    };
-
+    // while (!this.state.ready){} 
     return (
       <>
         <div style={{
@@ -39,9 +50,7 @@ class App extends Component {
             Patrick's Frame
       </h1>
         </div>
-        <Content onChange={this.sendMessage} defaults={this.defaults} />
-        <div>
-        </div>
+        <Content onChange={this.sendMessage} defaults={this.state.defaults} />
       </>
     );
   }
