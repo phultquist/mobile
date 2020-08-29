@@ -5,7 +5,7 @@ export class Content extends React.Component {
     
     constructor(props){
         super(props)
-        console.log(this.props);
+        // console.log(this.props);
         // this.state = this.props.defaults
         this.state = {
             contrast: 0,
@@ -15,17 +15,21 @@ export class Content extends React.Component {
         this.onChange = this.onChange.bind(this)
         this.onSliderChange = this.onSliderChange.bind(this)
         this.onUndo = this.onUndo.bind(this)
-
     }
 
     componentDidMount() {
-        console.log(this.props.defaults);
+        // console.log(this.props.defaults);
+        this.lastDefaults = this.props.defaults;
         this.setState(this.props.defaults)
     }
 
     componentDidUpdate() {
         // console.log(this.props.key);
         // this.setState(this.props.key)
+        if (this.props.defaults.fromServer === true) {
+            this.props.defaults.fromServer = false
+            this.setState(this.props.defaults)
+        }
     }
 
     onChange = () => {
@@ -43,6 +47,7 @@ export class Content extends React.Component {
     }
 
     render() {
+        // console.log('rendering content', this.props.defaults);
         return (<div
             style={{
                 display: 'flex',

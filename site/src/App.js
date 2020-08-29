@@ -23,8 +23,8 @@ class App extends Component {
       this.setState({
         defaults: JSON.parse(message.data)
       })
-      console.log(this.state.defaults);
-      this.render();
+      // console.log(this.state.defaults);
+      this.render()
       return this.state.defaults
     };
   }
@@ -34,6 +34,7 @@ class App extends Component {
   }
 
   render() {
+    // console.log('rendering app', this.state.defaults);
     // while (!this.state.ready){} 
     return (
       <>
