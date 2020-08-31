@@ -1,9 +1,10 @@
 import React from 'react';
-import { Slider } from 'theme-ui'
+import { Slider, Button } from 'theme-ui'
+import theme from './theme'
 
 export class Content extends React.Component {
-    
-    constructor(props){
+
+    constructor(props) {
         super(props)
         // console.log(this.props);
         // this.state = this.props.defaults
@@ -37,12 +38,12 @@ export class Content extends React.Component {
     }
 
     onSliderChange = (event) => {
-        this.setState({[event.target.id]: event.target.value})
+        this.setState({ [event.target.id]: event.target.value })
         this.onChange()
     }
 
     onUndo = (event) => {
-        this.setState({contrast: 10, brightness: 20})
+        this.setState({ contrast: 10, brightness: 20 })
         this.onChange()
     }
 
@@ -61,15 +62,15 @@ export class Content extends React.Component {
                 <h2>Paused/Playing/Off/Error</h2>
 
                 <h4 style={fieldTitle}>Contrast</h4>
-                <Slider id='contrast' value={this.state.contrast} onChange={this.onSliderChange}/>
+                <Slider id='contrast' value={this.state.contrast} onChange={this.onSliderChange} />
 
                 <h4 style={fieldTitle}>Brightness</h4>
-                <Slider id='brightness' value={this.state.brightness} onChange={this.onSliderChange}/>
+                <Slider id='brightness' value={this.state.brightness} onChange={this.onSliderChange} />
 
                 <h4 style={fieldTitle}>Animation Length</h4>
-                <Slider id='animation' value={this.state.animation} onChange={this.onSliderChange}/>
+                <Slider id='animation' value={this.state.animation} onChange={this.onSliderChange} />
 
-                <button onClick={this.onUndo}>Undo</button>
+                <Button theme={theme} variant='secondary' onClick={this.onUndo}>Undo</Button>
             </div>
         </div>);
     }
@@ -80,4 +81,18 @@ export default Content;
 const fieldTitle = {
     marginTop: '30px',
     marginBottom: '10px'
+}, buttonStyle = {
+    appearance: 'none',
+    display: 'inline-block',
+    textAlign: 'center',
+    lineHeight: 'inherit',
+    textDecoration: 'none',
+    fontSize: 'inherit',
+    fontWeight: 'bold',
+    m: 0,
+    px: 3,
+    py: 2,
+    border: 0,
+    borderRadius: 4,
+    variant: 'buttons.primary',
 }
