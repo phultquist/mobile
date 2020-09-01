@@ -5,7 +5,7 @@ const wss = new WebSocket.Server({ port: 8080 })
 
 const defaults = {
     contrast: 10,
-    brightness: 99,
+    brightness: 20,
     animation: 12,
     fromServer: true
 }
