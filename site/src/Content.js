@@ -81,18 +81,4 @@ export default Content;
 const fieldTitle = {
     marginTop: '30px',
     marginBottom: '10px'
-}, buttonStyle = {
-    appearance: 'none',
-    display: 'inline-block',
-    textAlign: 'center',
-    lineHeight: 'inherit',
-    textDecoration: 'none',
-    fontSize: 'inherit',
-    fontWeight: 'bold',
-    m: 0,
-    px: 3,
-    py: 2,
-    border: 0,
-    borderRadius: 4,
-    variant: 'buttons.primary',
-}
+};
