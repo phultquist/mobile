@@ -20,7 +20,7 @@ brightness = "${values.brightness}"
 contrast = "${values.contrast}"
 animation = "${values.animation}"
     `
-    fs.writeFile('settings.py', filetext, function() {
+    fs.writeFile('settings.json', message, function() {
       return true
     })
   })
