@@ -9,7 +9,7 @@ fs.readFile('settings.json', 'utf8', (err, data) => {
 
   wss.on('connection', (ws) => {
     ws.on('message', (message) => {
-      // console.log(message)
+      console.log(message)
       let values = JSON.parse(message);
       let filetext = `
   # note this only stores the raw values 0 - 100. they are interpreted in the python script

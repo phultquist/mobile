@@ -35,7 +35,9 @@ export class Content extends React.Component {
     }
 
     onChange = () => {
-        this.props.onChange(JSON.stringify(this.state))
+        setTimeout(() => {
+            this.props.onChange(JSON.stringify(this.state))
+        }, 100)
     }
 
     onFieldChange = (event) => {
@@ -45,7 +47,11 @@ export class Content extends React.Component {
 
     onSelectChange = (event) => {
         // this.setState({ })
-        console.log(event.target.id);
+        let index = event.target.selectedIndex
+        let value = event.target.children[index].value
+        console.log(value);
+        this.setState({[event.target.id]: value})
+        this.onChange();
     }
 
     onUndo = (event) => {
@@ -75,10 +81,11 @@ export class Content extends React.Component {
 
                 <h4 style={fieldTitle}>Animation Length</h4>
                 <Slider id='animation' value={this.state.animation} onChange={this.onFieldChange} />
-                <Select name='sound' id='sound' mb={3} onChange={this.onFieldChange}>
-                    <option value='something'>Beep</option>
-                    <option value='something1'>Baep</option>
-                    <option value='something2'>Beffp</option>
+
+                <h4 style={fieldTitle}>Animation</h4>
+                <Select name='useAnimation' id='useAnimation' mb={3} onChange={this.onSelectChange}>
+                    <option value='true'>On</option>
+                    <option value='false'>Off</option>
                 </Select>
                 <Button theme={theme} variant='secondary' onClick={this.onUndo}>Undo</Button>
             </div>
