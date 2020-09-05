@@ -3,19 +3,20 @@ import { w3cwebsocket as W3CWebSocket } from "websocket";
 import Content from './Content.js'
 
 //patrick 
-// const client = new W3CWebSocket('ws://192.168.68.117:8080');
+const client = new W3CWebSocket('ws://192.168.68.117:8080');
 
 //addison
-const client = new W3CWebSocket('ws://192.168.4.72:8080');
+// const client = new W3CWebSocket('ws://192.168.4.72:8080');
 
 class App extends Component {
   constructor(props) {
     super(props);
     this.sendMessage = this.sendMessage.bind(this)
     this.state = {defaults: {
-      contrast: 30,
-      brightness: 20,
-      animation: 90
+      contrast: 0,
+      brightness: 0,
+      animation: 0,
+      fromServer: false
     }}
   }
 
@@ -23,12 +24,15 @@ class App extends Component {
     client.onopen = () => {
       console.log('WebSocket Client Connected');
     };
+
     client.onmessage = (message) => {
       this.setState({
         defaults: JSON.parse(message.data)
-      })
+      });
+      // console.log(message);
       // console.log(this.state.defaults);
       this.render()
+      console.log(this.state.defaults);
       return this.state.defaults
     };
   }

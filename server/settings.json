@@ -1,1 +1,7 @@
-{"contrast":30,"brightness":20,"animation":90,"sound":"true","useAnimation":"false"}
+{
+    "contrast": 30,
+    "brightness": "73",
+    "animation": 90,
+    "sound": "true",
+    "fromServer": true
+}

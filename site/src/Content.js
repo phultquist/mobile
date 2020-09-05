@@ -12,7 +12,8 @@ export class Content extends React.Component {
             contrast: 0,
             brightness: 0,
             animation: 0,
-            sound: 'true'
+            sound: 'true',
+            fromServer: false
         }
         this.onChange = this.onChange.bind(this)
         this.onFieldChange = this.onFieldChange.bind(this)
@@ -23,14 +24,17 @@ export class Content extends React.Component {
         // console.log(this.props.defaults);
         this.lastDefaults = this.props.defaults;
         this.setState(this.props.defaults)
+        console.log(this.state);
     }
 
     componentDidUpdate() {
         // console.log(this.props.key);
         // this.setState(this.props.key)
+        console.log(this.props);
         if (this.props.defaults.fromServer === true) {
             this.props.defaults.fromServer = false
             this.setState(this.props.defaults)
+            console.log(this.state);
         }
     }
 
