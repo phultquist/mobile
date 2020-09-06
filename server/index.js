@@ -16,8 +16,8 @@ fs.readFile('settings.json', 'utf8', (err, data) => {
     ws.on('message', (message) => {
       // console.log(message)
       defaults = JSON.parse(message);
-      console.log(defaults);
-      fs.writeFile('settings.json', message, () => {})
+      defaults.fromServer = true;
+      fs.writeFile('settings.json', JSON.stringify(defaults), () => {})
     })
     console.log('connection established', defaults);
     ws.send(JSON.stringify(defaults))

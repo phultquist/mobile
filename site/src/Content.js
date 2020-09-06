@@ -40,7 +40,7 @@ export class Content extends React.Component {
 
     onChange = () => {
         setTimeout(() => {
-            this.props.onChange(JSON.stringify(this.state))
+            this.props.onChange(JSON.stringify(this.state, null, 2))
         }, 100)
     }
 
