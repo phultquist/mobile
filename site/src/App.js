@@ -3,10 +3,10 @@ import { w3cwebsocket as W3CWebSocket } from "websocket";
 import Content from './Content.js'
 
 //patrick 
-const client = new W3CWebSocket('ws://192.168.68.128:8080');
+// const client = new W3CWebSocket('ws://192.168.68.128:8080');
 
 //addison
-// const client = new W3CWebSocket('ws://192.168.4.72:8080');
+const client = new W3CWebSocket('ws://192.168.4.72:8080');
 
 class App extends Component {
   constructor(props) {
