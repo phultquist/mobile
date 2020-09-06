@@ -6,7 +6,7 @@ import Content from './Content.js'
 // const client = new W3CWebSocket('ws://192.168.68.128:8080');
 
 //addison
-const client = new W3CWebSocket('ws://192.168.4.72:8080');
+const client = new W3CWebSocket('ws://192.168.4.75:8080');
 
 class App extends Component {
   constructor(props) {
