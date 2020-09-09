@@ -3,3 +3,5 @@
 Used to configure settings.
 
 Built using WebSocket and React.
+
+App built with React Native.
