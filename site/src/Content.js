@@ -9,10 +9,6 @@ const segments = [
     { name: 'Listen', id: 'listen' }
 ];
 
-function handleChange(index) {
-    console.log(`selected index : ${index}`);
-}
-
 export class Content extends React.Component {
 
     constructor(props) {
