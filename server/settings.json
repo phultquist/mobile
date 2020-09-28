@@ -1,1 +1,21 @@
-{"contrast":"39","brightness":"60","animation":"73","sound":"true","fromServer":true,"useAnimation":"false"}
+{
+    "contrast": "39",
+    "brightness": "60",
+    "animation": "64",
+    "useAnimation": "false",
+    "autobrightness": true,
+    "fromServer": true,
+    "segments": [
+        {
+            "name": "Spotify",
+            "id": "spotify"
+        },
+        {
+            "name": "Listen",
+            "id": "listen"
+        }
+    ],
+    "selected": 0,
+    "sound": "true",
+    "mode": "spotify"
+}
