@@ -1,11 +1,13 @@
 const WebSocket = require('ws')
 const fs = require('fs')
-const util = require('util');
-const { kStringMaxLength } = require('buffer');
-
+const https = require('https')
 const wss = new WebSocket.Server({ port: 8080 })
 
 let defaults;
+// r = requests.get("https://patrick.today/frame/set", params={'ip': ip_address_url, 'frameId': FRAME_ID})
+https.get("https://patrick.today/frame/set?ip=1.1.1.1&frameId=poop", res => {
+  console.log(res);
+})
 
 fs.readFile('settings.json', 'utf8', (err, data) => {
   console.log(data);
