@@ -51,11 +51,12 @@ class App extends Component {
           backgroundColor: 'black',
           color: 'white',
           height: '70px',
-          textAlign: 'center',
+          textAlign: 'left',
         }}>
           <h1 style={{
             margin: '0px',
-            paddingTop: '12px'
+            paddingTop: '12px',
+            paddingLeft: '12px'
           }}>
             Patrick's Frame
       </h1>

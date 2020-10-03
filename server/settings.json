@@ -1,8 +1,8 @@
 {
-    "contrast": "39",
-    "brightness": "60",
-    "animation": "64",
-    "useAnimation": "false",
+    "contrast": 0,
+    "brightness": "51",
+    "animation": "28",
+    "useAnimation": "true",
     "autobrightness": true,
     "fromServer": true,
     "segments": [
@@ -17,5 +17,6 @@
     ],
     "selected": 0,
     "sound": "true",
-    "mode": "spotify"
+    "mode": "listen",
+    "listenTrigger": false
 }

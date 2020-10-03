@@ -30,6 +30,7 @@ export class Content extends React.Component {
         this.onUndo = this.onUndo.bind(this)
         this.onListen = this.onListen.bind(this)
         this.onModeChange = this.onModeChange.bind(this)
+        this.onRestoreDefaults = this.onRestoreDefaults.bind(this)
         this.ready = false;
     }
 
@@ -53,8 +54,12 @@ export class Content extends React.Component {
 
     onChange = () => {
         setTimeout(() => {
-            this.props.onChange(JSON.stringify(this.state, null, 2))
+            this.props.onChange(JSON.stringify(this.state))
         }, 100)
+    }
+
+    onRestoreDefaults = () => {
+        alert("not supported yet")
     }
 
     onFieldChange = (event) => {
@@ -63,7 +68,6 @@ export class Content extends React.Component {
     }
 
     onSelectChange = (event) => {
-        // this.setState({ })
         let index = event.target.selectedIndex
         let value = event.target.children[index].value
         console.log(value);
@@ -82,7 +86,9 @@ export class Content extends React.Component {
     }
 
     onListen = (event) => {
-        console.log('h');
+        // it is set to false by the python script. really, as far as this in concerned, it just pushes the change by calling onChange()
+        this.setState({listenTrigger: true})
+        this.onChange();
     }
 
     render() {
@@ -123,12 +129,8 @@ export class Content extends React.Component {
                     variant="dark"
                     onChangeSegment={this.onModeChange}
                 />
-
                 <h4 style={fieldTitle}>Brightness</h4>
                 <Slider id='brightness' value={this.state.brightness} onChange={this.onFieldChange} />
-
-                <h4 style={fieldTitle}>Contrast</h4>
-                <Slider id='contrast' value={this.state.contrast} onChange={this.onFieldChange} />
 
                 <h4 style={fieldTitle}>Fade</h4>
                 <Slider id='animation' min={5} value={this.state.animation} onChange={this.onFieldChange} />
@@ -144,8 +146,9 @@ export class Content extends React.Component {
                     <option value='true'>On</option>
                     <option value='false'>Off</option>
                 </Select>
-                <Button onClick={this.onListen} style={{ color: 'white', backgroundColor: 'black', width: '100%', }}>Force Listen</Button>
-                {/* <Button theme={theme} variant='secondary' onClick={this.onUndo}>Undo</Button> */}
+                {this.state.mode == 'listen'? <Button onClick={this.onListen} style={{ color: 'white', backgroundColor: 'black', width: '100%', marginBottom: '20px'}}>Listen Now</Button> : <></>}
+                
+                <Button onClick={this.onRestoreDefaults} style={{ color: 'black', backgroundColor: 'white', width: '100%', marginBottom: '20px'}}>Restore Defaults</Button>
             </div>
         </div>);
     }

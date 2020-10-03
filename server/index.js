@@ -17,26 +17,9 @@ fs.readFile('settings.json', 'utf8', (err, data) => {
       // console.log(message)
       defaults = JSON.parse(message);
       defaults.fromServer = true;
-      fs.writeFile('settings.json', JSON.stringify(defaults), () => {})
+      fs.writeFile('settings.json', JSON.stringify(defaults, null, 2), () => {})
     })
     console.log('connection established', defaults);
     ws.send(JSON.stringify(defaults))
   })
 })
-
-// readFile('settings.json', 'utf8')
-//   .then((data) => {
-//     console.log(data);
-//   })
-//   .catch((err) => {
-//     console.log(err);
-//   })
-
-
-// const defaults = {
-//     contrast: 10,
-//     brightness: 20,
-//     animation: 12,
-//     fromServer: true
-// }
-
