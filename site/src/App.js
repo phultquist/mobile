@@ -6,8 +6,9 @@ let url = window.location.href;
 
 //sorry for the complications here. there's probably a better way to do this with regex
 let piIp = url.split("://")[1].split(":")[0];
+// piIp = "192.168.68.105"
 
-const client = new W3CWebSocket(`ws://${piIp}:8080`);
+const client = new W3CWebSocket(`ws://${piIp}:443`);
 
 class App extends Component {
   constructor(props) {
