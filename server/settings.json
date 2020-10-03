@@ -1,22 +1,23 @@
 {
-    "contrast": 0,
-    "brightness": "51",
-    "animation": "28",
-    "useAnimation": "true",
-    "autobrightness": true,
-    "fromServer": true,
-    "segments": [
-        {
-            "name": "Spotify",
-            "id": "spotify"
-        },
-        {
-            "name": "Listen",
-            "id": "listen"
-        }
-    ],
-    "selected": 1,
-    "sound": "true",
-    "mode": "listen",
-    "listenTrigger": false
+  "contrast": 0,
+  "brightness": "57",
+  "animation": "50",
+  "useAnimation": "true",
+  "autobrightness": "false",
+  "fromServer": true,
+  "segments": [
+    {
+      "name": "Spotify",
+      "id": "spotify",
+      "default": true
+    },
+    {
+      "name": "Listen",
+      "id": "listen"
+    }
+  ],
+  "selected": 1,
+  "listenTrigger": false,
+  "mode": "listen",
+  "sound": "true"
 }

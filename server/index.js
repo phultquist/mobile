@@ -5,7 +5,6 @@ const { kStringMaxLength } = require('buffer');
 
 const wss = new WebSocket.Server({ port: 8080 })
 
-// const readFile = util.promisify(fs.readFile);
 let defaults;
 
 fs.readFile('settings.json', 'utf8', (err, data) => {
@@ -21,5 +20,13 @@ fs.readFile('settings.json', 'utf8', (err, data) => {
     })
     console.log('connection established', defaults);
     ws.send(JSON.stringify(defaults))
+
+    fs.watch('settings.json', (type, filename) => {
+      fs.readFile('settings.json', 'utf8', (err, data) => {
+        ws.send(data)
+      });
+      // console.log('file changed');
+    })
   })
 })
+

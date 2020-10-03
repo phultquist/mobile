@@ -17,7 +17,9 @@ class App extends Component {
       contrast: 0,
       brightness: 0,
       animation: 0,
-      fromServer: false
+      fromServer: false,
+      listenTrigger: false,
+      mode: "spotify"
     }}
   }
 
@@ -27,13 +29,17 @@ class App extends Component {
     };
 
     client.onmessage = (message) => {
-      this.setState({
-        defaults: JSON.parse(message.data)
-      });
+      try {
+        this.setState({
+          defaults: JSON.parse(message.data)
+        });
+      } catch {
+        console.log("json read error");
+      }
       // console.log(message);
       // console.log(this.state.defaults);
       this.render()
-      console.log(this.state.defaults);
+      // console.log(this.state.defaults);
       return this.state.defaults
     };
   }

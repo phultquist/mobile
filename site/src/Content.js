@@ -1,12 +1,12 @@
 import React from 'react';
 import { Slider, Select, Button } from 'theme-ui'
-import { SegmentedControl } from 'segmented-control-react';
+import { SegmentedControl } from 'segmented-control';
 
 // import theme from './theme'
 
 const segments = [
-    { name: 'Spotify', id: 'spotify' },
-    { name: 'Listen', id: 'listen' }
+    { label: 'Spotify', value: 'spotify', default: true },
+    { label: 'Listen', value: 'listen' }
 ];
 
 export class Content extends React.Component {
@@ -29,7 +29,7 @@ export class Content extends React.Component {
         this.onFieldChange = this.onFieldChange.bind(this)
         this.onUndo = this.onUndo.bind(this)
         this.onListen = this.onListen.bind(this)
-        this.onModeChange = this.onModeChange.bind(this)
+        // this.onModeChange = this.onModeChange.bind(this)
         this.onRestoreDefaults = this.onRestoreDefaults.bind(this)
         this.ready = false;
     }
@@ -48,7 +48,7 @@ export class Content extends React.Component {
             this.props.defaults.fromServer = false
             this.ready = true;
             this.setState(this.props.defaults)
-            console.log(this.state);
+            // console.log(this.state);
         }
     }
 
@@ -80,11 +80,6 @@ export class Content extends React.Component {
         this.onChange()
     }
 
-    onModeChange = (index) => {
-        this.setState({mode: segments[index].id, selected: index, listenTrigger: false})
-        this.onChange();
-    }
-
     onListen = (event) => {
         // it is set to false by the python script. really, as far as this in concerned, it just pushes the change by calling onChange()
         this.setState({listenTrigger: true})
@@ -94,7 +89,7 @@ export class Content extends React.Component {
     render() {
         // console.log('rendering content', this.props.defaults);
         if (!this.ready) {
-            console.log('not ready');
+            // console.log('not ready');
             return (
                 <div
                     style={{
@@ -123,23 +118,22 @@ export class Content extends React.Component {
                 width: '90vw'
             }}>
                 <h2>Settings</h2>
-                <SegmentedControl
-                    segments={this.state.segments}
-                    selected={this.state.selected}
-                    variant="dark"
-                    onChangeSegment={this.onModeChange}
-                />
+                <h4 style={fieldTitle}>Mode</h4>
+                <Select name='mode' id='mode' mb={3} value={this.state.mode} onChange={this.onSelectChange}>
+                    <option value='spotify'>Spotify</option>
+                    <option value='listen'>Listen</option>
+                </Select>
                 <h4 style={fieldTitle}>Brightness</h4>
                 <Slider id='brightness' value={this.state.brightness} onChange={this.onFieldChange} />
 
-                <h4 style={fieldTitle}>Fade</h4>
+                <h4 style={fieldTitle}>Transition Length</h4>
                 <Slider id='animation' min={5} value={this.state.animation} onChange={this.onFieldChange} />
 
-                <h4 style={fieldTitle}>Animation</h4>
+                {/* <h4 style={fieldTitle}>Animation</h4>
                 <Select name='useAnimation' id='useAnimation' mb={3} value={this.state.useAnimation} onChange={this.onSelectChange}>
                     <option value='true'>On</option>
                     <option value='false'>Off</option>
-                </Select>
+                </Select> */}
 
                 <h4 style={fieldTitle}>Auto Brightness</h4>
                 <Select name='autobrightness' id='autobrightness' mb={3} value={this.state.autobrightness} onChange={this.onSelectChange}>
@@ -148,7 +142,7 @@ export class Content extends React.Component {
                 </Select>
                 {this.state.mode == 'listen'? <Button onClick={this.onListen} style={{ color: 'white', backgroundColor: 'black', width: '100%', marginBottom: '20px'}}>Listen Now</Button> : <></>}
                 
-                <Button onClick={this.onRestoreDefaults} style={{ color: 'black', backgroundColor: 'white', width: '100%', marginBottom: '20px'}}>Restore Defaults</Button>
+                <Button onClick={this.onRestoreDefaults} style={{ color: 'gray', backgroundColor: 'white', width: '100%', marginBottom: '20px'}}>Restore Defaults</Button>
             </div>
         </div>);
     }
