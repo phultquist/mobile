@@ -1,6 +1,5 @@
 import React from 'react';
 import { Slider, Select, Button } from 'theme-ui'
-import { SegmentedControl } from 'segmented-control';
 
 // import theme from './theme'
 
