@@ -8,7 +8,7 @@ let url = window.location.href;
 let piIp = url.split("://")[1].split(":")[0];
 // piIp = "192.168.68.105"
 
-const client = new W3CWebSocket(`ws://${piIp}:443`);
+const client = new W3CWebSocket(`ws://${piIp}:8080`);
 
 class App extends Component {
   constructor(props) {
