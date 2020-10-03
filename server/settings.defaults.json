@@ -1,0 +1,11 @@
+{
+    "contrast": 0,
+    "brightness": "58",
+    "animation": "50",
+    "useAnimation": "true",
+    "autobrightness": "false",
+    "fromServer": true,
+    "listenTrigger": false,
+    "mode": "listen",
+    "sound": "true"
+  }

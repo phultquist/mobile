@@ -139,7 +139,7 @@ export class Content extends React.Component {
                     <option value='true'>On</option>
                     <option value='false'>Off</option>
                 </Select>
-                {this.state.mode == 'listen'? <Button onClick={this.onListen} style={{ color: 'white', backgroundColor: 'black', width: '100%', marginBottom: '20px'}}>Listen Now</Button> : <></>}
+                {this.state.mode === 'listen'? <Button onClick={this.onListen} style={{ color: 'white', backgroundColor: 'black', width: '100%', marginBottom: '20px'}}>Listen Now</Button> : <></>}
                 
                 <Button onClick={this.onRestoreDefaults} style={{ color: 'gray', backgroundColor: 'white', width: '100%', marginBottom: '20px'}}>Restore Defaults</Button>
             </div>
