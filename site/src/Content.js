@@ -81,7 +81,7 @@ export class Content extends React.Component {
     }
 
     onModeChange = (index) => {
-        this.setState({mode: segments[index].id})
+        this.setState({mode: segments[index].id, selected: index, listenTrigger: false})
         this.onChange();
     }
 
