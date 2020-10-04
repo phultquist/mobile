@@ -133,6 +133,11 @@ export class Content extends React.Component {
                     <option value='true'>On</option>
                     <option value='false'>Off</option>
                 </Select> */}
+                <h4 style={fieldTitle}>Clock</h4>
+                <Select name='showClock' id='showClock' mb={3} value={this.state.showClock} onChange={this.onSelectChange}>
+                    <option value={true}>On</option>
+                    <option value={false}>Off</option>
+                </Select>
 
                 <h4 style={fieldTitle}>Clock Style</h4>
                 <Select name='clock' id='clock' mb={3} value={this.state.clock} onChange={this.onSelectChange}>

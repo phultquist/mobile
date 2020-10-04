@@ -1,7 +1,7 @@
 {
   "contrast": 0,
-  "brightness": "44",
-  "animation": "78",
+  "brightness": "23",
+  "animation": "10",
   "useAnimation": "true",
   "autobrightness": "true",
   "fromServer": true,
@@ -18,7 +18,8 @@
   ],
   "selected": 1,
   "listenTrigger": false,
+  "clock": "classic",
   "mode": "spotify",
   "sound": "true",
-  "clock": "classic"
+  "showClock": "false"
 }
