@@ -1,7 +1,7 @@
 const WebSocket = require('ws')
 const fs = require('fs')
 const https = require('https')
-const wss = new WebSocket.Server({ port: 8080 })
+const wss = new WebSocket.Server({ port: 8000 })
 
 let defaults;
 // r = requests.get("https://patrick.today/frame/set", params={'ip': ip_address_url, 'frameId': FRAME_ID})

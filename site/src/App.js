@@ -6,7 +6,7 @@ let url = window.location.href;
 
 //sorry for the complications here. there's probably a better way to do this with regex
 let piIp = url.split("://")[1].split(":")[0];
-// piIp = "192.168.68.105"
+piIp = "192.168.68.135"
 
 const client = new W3CWebSocket(`ws://${piIp}:8080`);
 
@@ -20,6 +20,7 @@ class App extends Component {
       animation: 0,
       fromServer: false,
       listenTrigger: false,
+      clock: "classic",
       mode: "spotify"
     }}
   }

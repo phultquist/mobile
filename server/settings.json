@@ -19,5 +19,6 @@
   "selected": 1,
   "listenTrigger": false,
   "mode": "spotify",
-  "sound": "true"
+  "sound": "true",
+  "clock": "classic"
 }

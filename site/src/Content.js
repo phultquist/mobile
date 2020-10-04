@@ -81,7 +81,7 @@ export class Content extends React.Component {
 
     onListen = (event) => {
         // it is set to false by the python script. really, as far as this in concerned, it just pushes the change by calling onChange()
-        this.setState({listenTrigger: true})
+        this.setState({ listenTrigger: true })
         this.onChange();
     }
 
@@ -126,7 +126,7 @@ export class Content extends React.Component {
                 <Slider id='brightness' value={this.state.brightness} onChange={this.onFieldChange} />
 
                 <h4 style={fieldTitle}>Transition Length</h4>
-                <Slider id='animation' min={5} value={this.state.animation} onChange={this.onFieldChange} />
+                <Slider id='animation' min={5} max={25} value={this.state.animation} onChange={this.onFieldChange} />
 
                 {/* <h4 style={fieldTitle}>Animation</h4>
                 <Select name='useAnimation' id='useAnimation' mb={3} value={this.state.useAnimation} onChange={this.onSelectChange}>
@@ -134,14 +134,20 @@ export class Content extends React.Component {
                     <option value='false'>Off</option>
                 </Select> */}
 
+                <h4 style={fieldTitle}>Clock Style</h4>
+                <Select name='clock' id='clock' mb={3} value={this.state.clock} onChange={this.onSelectChange}>
+                    <option value='classic'>Classic</option>
+                    <option value='modern'>Modern</option>
+                </Select>
+
                 <h4 style={fieldTitle}>Auto Brightness</h4>
                 <Select name='autobrightness' id='autobrightness' mb={3} value={this.state.autobrightness} onChange={this.onSelectChange}>
                     <option value='true'>On</option>
                     <option value='false'>Off</option>
                 </Select>
-                {this.state.mode === 'listen'? <Button onClick={this.onListen} style={{ color: 'white', backgroundColor: 'black', width: '100%', marginBottom: '20px'}}>Listen Now</Button> : <></>}
-                
-                <Button onClick={this.onRestoreDefaults} style={{ color: 'gray', backgroundColor: 'white', width: '100%', marginBottom: '20px'}}>Restore Defaults</Button>
+                {this.state.mode === 'listen' ? <Button onClick={this.onListen} style={{ color: 'white', backgroundColor: 'black', width: '100%', marginBottom: '20px' }}>Listen Now</Button> : <></>}
+
+                <Button onClick={this.onRestoreDefaults} style={{ color: 'gray', backgroundColor: 'white', width: '100%', marginBottom: '20px' }}>Restore Defaults</Button>
             </div>
         </div>);
     }
